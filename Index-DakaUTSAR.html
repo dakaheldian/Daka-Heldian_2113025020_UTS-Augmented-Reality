@@ -1,300 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <title>Rumah 3D - Daka Heldian</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Rumah AR</title>
-    <div id="container">
-        <!-- Menambahkan teks nama -->
-        <div class="nama">Daka Heldaian<br>NPM: 2113025020</div>
-
-        <div class="container">
-            <div class="box" style="--i:0; ">
-                <div class="door" arjs-anchor="nama_AR">Pintu Masuk</div>
-                <div class="window" arjs-anchor="nama_">Jendela Depan</div>
-                <div class="teras" arjs-anchor="nama_A">Teras Depan</div>
-            </div>
-            <div class="box" style="--i:1; ">
-                <div class="windows" arjs-anchor="nama_AR">Jendela Samping</div>
-                <div class="ventilasi1" arjs-anchor="nama_AR">Ventilasi Samping</div>
-            </div>
-            <div class="box" style="--i:2; ">
-                <div class="door" arjs-anchor="nama_AR-">Pintu Belakang</div>
-                <div class="window" arjs-anchor="nama_AR">Jendela Belakang</div>
-            </div>
-            <div class="box" style="--i:3; ">
-                <div class="windows" arjs-anchor="nama_AR">Jendela Samping</div>
-                <div class="ventilasi1" arjs-anchor="nama_AR">Ventilasi Samping</div>
-            </div>
-            <div class="box1" style="--b:white; font-size: 8px;" arjs-anchor="nama_AR">Dinding Dalam</div>
-            <div class="atap" arjs-anchor="nama_AR">Atap Depan</div>
-            <div class="atap1" arjs-anchor="nama_AR">Atap Belakang</div>
-        </div>
-    </div>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            user-select: none;
-            font-size: 8px; /* Merubah ukuran tulisan untuk semua elemen */
-        }
-        body {
-            position: relative; /* Menambahkan posisi relatif untuk menempatkan teks nama */
-        }
-        ::-webkit-scrollbar {
-            display: none;
-        }
-        .container {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transform-style: preserve-3d;
-            animation: box 7s linear infinite;
-            cursor: grab;
-        }
-
-        /* Dinding Rumah*/
-
-        .box {
-            position: absolute;
-            background: rgb(255, 98, 0);
-            width: 300px;
-            height: 300px;
-            border-bottom: 10px solid rgb(16, 58, 0);
-            border-right: 5px solid rgb(16, 58, 0);
-            border-left: 5px solid rgb(16, 58, 0);
-            transform-style: preserve-3d;
-            transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
-        }
-
-        /* Pintu */
-
-        .door {
-            width: 100px;
-            height: 200px;
-            background: brown;
-            position: absolute;
-            top: 100px;
-            left: 20px;
-            outline: 5px solid black;
-        }
-
-        .door::before {
-            content: '';
-            position: absolute;
-            top: 100px;
-            left: 10px;
-            width: 10px;
-            height: 10px;
-            background: #000;
-            border-radius: 100%;
-        }
-
-        /* Jendela */
-
-        .window {
-            position: absolute;
-            top: 100px;
-            left: 150px;
-            width: 100px;
-            height: 100px;
-            background: #fff;
-            outline: 5px solid black;
-        }
-
-        .window::before {
-            position: absolute;
-            content: '';
-            width: 100px;
-            height: 5px;
-            background: #000;
-            top: 50px;
-        }
-
-        .window::after {
-            position: absolute;
-            content: '';
-            width: 5px;
-            height: 100px;
-            background: #000;
-            left: 50px;
-        }
-
-        .windows {
-            width: 200px;
-            height: 100px;
-            background: #fff;
-            position: absolute;
-            top: 100px;
-            left: 50px;
-            outline: 5px solid #000;
-        }
-
-        .windows::before {
-            position: absolute;
-            content: '';
-            background: #000;
-            width: 200px;
-            height: 5px;
-            top: 50px;
-        }
-
-        .windows::after {
-            position: absolute;
-            content: '';
-            background: #000;
-            width: 5px;
-            height: 100px;
-            left: 100px;
-        }
-
-        /* Ventilasi */
-
-        .ventilasi {
-            width: 100px;
-            height: 10px;
-            background: #fff;
-            outline: 5px solid #000;
-            position: absolute;
-            top: 70px;
-            left: 20px;
-        }
-
-        .ventilasi::before {
-            content: '';
-            width: 100px;
-            height: 10px;
-            background: #fff;
-            outline: 5px solid #000;
-            position: absolute;
-            top: 0;
-            left: 130px;
-        }
-
-        .ventilasi1 {
-            position: absolute;
-            width: 200px;
-            height: 10px;
-            background: #fff;
-            outline: 5px solid #000;
-            top: 70px;
-            left: 50px;
-        }
-
-        /* Teras */
-
-        .teras {
-            width: 300px;
-            height: 150px;
-            background: rgb(16, 58, 0);
-            transform-style: preserve-3d;
-            border: 5px solid brown;
-            transform: rotateX(90deg) translateZ(-225px) translateY(50px);
-        }
-
-        .box1 {
-            width: 300px;
-            height: 300px;
-            background: #fff;
-            transform: rotateX(90deg) translateZ(-150px);
-        }
-
-        /* Atap */
-
-        .atap {
-            width: 400px;
-            height: 300px;
-            background: brown;
-            position: absolute;
-            border: 5px solid rgb(16, 58, 0);
-            transform: translateZ(128px) translateY(-165px) rotateX(60deg);
-        }
-
-        .atap1 {
-            width: 400px;
-            height: 300px;
-            background: brown;
-            position: absolute;
-            border: 5px solid rgb(16, 58, 0);
-            transform: translateZ(-128px) translateY(-165px) rotateX(-60deg);
-        }
-        
-        /* Animasi Berputar */                                                     
-
-        @keyframes box {
-            0% {
-                transform: rotateX(-10deg) rotateY(0deg);
-            }
-            100% {
-                transform: rotateX(-10deg) rotateY(-360deg);
-            }
-        }
-
-        /* Menambahkan teks nama di bagian kiri atas background */
-        .nama {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 8px; /* Mengubah ukuran tulisan */
-            color: black;
-            z-index: 9999; /* Menempatkan teks di atas konten lain */
-        }
-        
-    </style>
 </head>
 <body>
-    <script>
-        let isGrabbing = false;
-        let grabStartX = 0;
-        let grabStartY = 0;
-        let container = document.querySelector('.container');
-    
-        container.addEventListener('mousedown', function (event) {
-            isGrabbing = true;
-            grabStartX = event.clientX;
-            grabStartY = event.clientY;
-        });
-    
-        container.addEventListener('mousemove', function (event) {
-            if (isGrabbing) {
-                let rotateX = -(event.clientY - grabStartY) / 5;
-                let rotateY = (event.clientX - grabStartX) / 5;
-                container.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
-            }
-        });
-    
-        container.addEventListener('mouseup', function () {
-            isGrabbing = false;
-        });
-    
-        container.addEventListener('mouseleave', function () {
-            isGrabbing = false;
-        });
-    
-        // Tambahan untuk gerakan kursor ke atas, bawah, kanan, kiri
-        window.addEventListener('keydown', function (event) {
-            if (event.key === 'ArrowUp') {
-                container.style.transform = 'rotateX(-90deg) rotateY(0deg)';
-            } else if (event.key === 'ArrowDown') {
-                container.style.transform = 'rotateX(90deg) rotateY(0deg)';
-            } else if (event.key === 'ArrowLeft') {
-                container.style.transform = 'rotateX(0deg) rotateY(90deg)';
-            } else if (event.key === 'ArrowRight') {
-                container.style.transform = 'rotateX(0deg) rotateY(-90deg)';
-            }
-        });
-    </script>    
+    <a-scene>
+        <!-- Nama dan NPM (a-text) -->
+        <a-text value="DAKA HELDIAN (2113025020)" position="0 7 -1" color="#000000" align="center" width="8" font="https://cdn.aframe.io/fonts/mozillavr.fnt" font-size="12"></a-text>
 
-    <!-- Tambahkan elemen a-scene untuk AR -->
-    <a-scene embedded arjs="sourceType: webcam;">
-        <!-- Konten AR akan ditambahkan di sini -->
+        <!-- Atap Rumah (a-cone) -->
+        <a-cone position="5.5 4 -5" height="3" radius-bottom="6" color="brown"></a-cone>
+        <a-cone position="0 4 -5" height="3" radius-bottom="5" color="brown">
+            <a-text value="Atap Rumah" position="0 2 0" color="#000000" align="center" width="8" font="https://cdn.aframe.io/fonts/mozillavr.fnt" font-size="8"></a-text>
+        </a-cone>
+
+        <!-- Badan Rumah (a-box) -->
+        <a-box position="0 1 -5" width="6" height="4" depth="4" color="red"></a-box>
+        <a-box position="6 1 -5" width="8" height="4" depth="4" color="yellow">
+            <a-text value="Badan Rumah (tembok)" position="-2 -1.3 2.2" color="#000000" align="center" width="8" font="https://cdn.aframe.io/fonts/mozillavr.fnt" font-size="8"></a-text>
+        </a-box>
+
+        <!-- Pintu (a-box) -->
+        <a-box position="-1.5 0 -4" width="1.5" height="3" depth="2" color="brown">
+            <a-text value="Pintu" position="-0.1 0.5 1" color="#000000" align="center" width="8" font="https://cdn.aframe.io/fonts/mozillavr.fnt" font-size="8"></a-text>
+        </a-box>
+
+        <!-- Jendela (a-box) -->
+        <a-box position="0.6 0.7 -4" width="1.5" height="1.5" depth="2" color="blue">
+            <a-text value="Jendela" position="0 0.5 1" color="#000000" align="center" width="8" font="https://cdn.aframe.io/fonts/mozillavr.fnt" font-size="8"></a-text>
+        </a-box>
+        <a-box position="4.5 0.7 -4" width="1.5" height="1.5" depth="2" color="blue">
+            <a-text value="Jendela" position="3 0.5 1" color="#000000" align="center" width="8" font="https://cdn.aframe.io/fonts/mozillavr.fnt" font-size="8"></a-text>
+        </a-box>
+        <a-box position="7.6 0.7 -4" width="1.5" height="1.5" depth="2" color="blue">
+            <a-text value="Jendela" position="-3.2 0.5 1" color="#000000" align="center" width="8" font="https://cdn.aframe.io/fonts/mozillavr.fnt" font-size="8"></a-text>
+        </a-box>
+
+        <!-- Latar (a-plane) -->
+        <a-plane position="0 -1 -5" rotation="-90 0 0" width="30" height="20" color="green"></a-plane>
+        <a-text value="Latar Rumput" position="-2 -0.5 2.2" color="#000000" align="center" width="8" font="https://cdn.aframe.io/fonts/mozillavr.fnt" font-size="5"></a-text>
+
+
+        <!-- Cerobong Asap (a-cylinder) -->
+        <a-cylinder position="8.5 4 -5" rotation="0 45 0" radius="0.2" height="2" color="#445451"></a-cylinder>
+        <a-text value="Cerobong Asap" position="7.5 5.5 -5" color="#000000" align="center" width="8" font="https://cdn.aframe.io/fonts/mozillavr.fnt" font-size="8"></a-text>
+
+        <!-- Pohon (mix) -->
+        <a-sphere position="-8 4 -4" radius="1.8" color="green"></a-sphere>
+        <a-cylinder position="-8 1 -4" rotation="0 45 0" radius="0.2" height="5" color="#592101">
+            <a-text value="Pohon" position="-1.5 1 1" color="#000000" align="center" width="8" font="https://cdn.aframe.io/fonts/mozillavr.fnt" font-size="8"></a-text>
+        </a-cylinder>
+        
+        <!-- Dalam atap dan Kamera -->
+        <a-light type="ambient" color="#445451"></a-light>
+        <a-light type="point" intensity="2" position="2 4 4"></a-light>
+        
+        <!-- Kamera Augmented Reality (AR) dengan kursor dan kontrol keyboard -->
+        <a-entity camera look-controls wasd-controls position="0 1.6 0" cursor="rayOrigin: mouse;"></a-entity>
+
+        <!-- Latar Belakang (a-sky) -->
+        <a-sky color="#87CEEB"></a-sky>
     </a-scene>
 </body>
 </html>
