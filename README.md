@@ -13,4 +13,4 @@ pastikan objek tersebut (rumah) dapat tampil dalam tampilan AR :: 30 poin
 deadline:: Minggu, 21 April 2024; 23:59 WIB
 pastikan hasil yang kalian kumpulkan berbeda dengan rekan kalian, jika ada yang sama, maka akan disamakan juga nilainya (0)
 
-Hasil: https://i.pinimg.com/originals/48/8d/99/488d9925c7b7d1dd644f9a2d2ab6b9d0.png 
+Hasil: [https://i.pinimg.com/originals/48/8d/99/488d9925c7b7d1dd644f9a2d2ab6b9d0.png ](https://pin.it/1BT9AxWry)
